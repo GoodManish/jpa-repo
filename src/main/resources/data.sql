@@ -1,13 +1,39 @@
 /*
+    Hibernate Table DDL: 
+    
     create table customer (
-        id integer not null,
-        cust_id integer not null,
-        threshold_amt integer,
-        utilized_threshold_amt integer,
+       id bigint not null,
         created_date timestamp,
+        cust_id bigint not null,
         last_updated_date timestamp,
+        threshold_amt bigint not null,
+        utilized_threshold_amt bigint not null,
+        usr_id integer,
         primary key (id)
-    );
+    )
+	
+    create table usr (
+       id integer not null,
+        last_updated_date timestamp not null,
+        user_name varchar(255) not null,
+        primary key (id)
+    )
+	
+--- Request JSON ---
+{
+  "id" : 1,
+  "custId" : 999,
+  "thresholdAmt" : 50000,
+  "utilizedThresholdAmt" : 40000,
+  "lastUpdatedDate" : "2022-08-04T21:20:19",
+  "createdDate" : "2022-08-04T21:20:19",
+  "usr" : {
+    "id" : 2,
+    "userName" : "Shakti",
+    "lastUpdatedDate" : "2022-08-04T21:20:19"
+  }
+}
+    
 */
 
 -- USR needs to be saved before CUSTOMER
